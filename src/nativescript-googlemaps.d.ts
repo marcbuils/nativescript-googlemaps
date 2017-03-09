@@ -9,7 +9,7 @@ export class TnsGoogleMaps extends View {
 
     public static mapLoadedEvent: string;
 
-    public static markerProperty: Property;
+    public marker: boolean;
 
     public addMarker(marker);
 

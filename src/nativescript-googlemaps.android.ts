@@ -1,12 +1,12 @@
-import common = require("./nativescript-googlemaps-common");
+import {TnsGoogleMapsBase, markerProperty} from "./nativescript-googlemaps-common";
 import * as application from "application";
 import * as platform from "platform";
 
-global.moduleMerge(common, exports);
+export {markerProperty};
 
 var REQUEST_REQUIRED_PERMISSIONS = 1234;
 
-export class TnsGoogleMaps extends common.TnsGoogleMaps {
+export class TnsGoogleMaps extends TnsGoogleMapsBase {
     private googleMap: any;
     private hasPermissions: boolean;
 
@@ -38,7 +38,7 @@ export class TnsGoogleMaps extends common.TnsGoogleMaps {
         }
     }
 
-    public _createUI() {
+    public _createNativeView(): void {
         this._nativeView = new org.nativescript.widgets.ContentLayout(this._context);
         this.createUIInternal();
     }
@@ -85,6 +85,17 @@ export class TnsGoogleMaps extends common.TnsGoogleMaps {
     public clearMap() {
         if (this.googleMap) {
             this.googleMap.clear();
+        }
+    }
+
+    get [markerProperty.native](): boolean {
+        return undefined;
+    }
+    set [markerProperty.native](value: boolean) {
+        if (value) {
+            this.addMarker(value);
+        } else {
+            this.clearMap();
         }
     }
 }
