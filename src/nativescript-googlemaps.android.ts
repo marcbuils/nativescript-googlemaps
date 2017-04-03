@@ -78,7 +78,7 @@ export class TnsGoogleMaps extends common.TnsGoogleMaps {
         if (marker && this.googleMap) {
             let newMarkerPosition = new com.google.android.gms.maps.model.LatLng(marker.latitude, marker.longitude);
             this.googleMap.addMarker(new com.google.android.gms.maps.model.MarkerOptions().position(newMarkerPosition));
-            this.googleMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(newMarkerPosition, this.googleMap.getMaxZoomLevel()));
+            this.googleMap.moveCamera(com.google.android.gms.maps.CameraUpdateFactory.newLatLngZoom(newMarkerPosition, 15));
         }
     }
 
