@@ -1,4 +1,5 @@
 {
+  "name": "nativescript-googlemaps",
   "devDependencies": {
     "tns-core-modules": "next",
     "tns-platform-declarations": "next",
