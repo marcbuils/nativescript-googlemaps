@@ -22,7 +22,7 @@ export class TnsGoogleMaps extends common.TnsGoogleMaps {
         if (marker && this.ios) {
             let newMarker = new GMSMarker();
             newMarker.position = CLLocationCoordinate2DMake(marker.latitude, marker.longitude);
-            let cameraUpdate = GMSCameraUpdate.setTargetZoom(newMarker.position, this.ios.maxZoom);
+            let cameraUpdate = GMSCameraUpdate.setTargetZoom(newMarker.position, 15);
             newMarker.map = this.ios;
             this.ios.animateWithCameraUpdate(cameraUpdate);
         }
